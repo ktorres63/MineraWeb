@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router'
 import Header from '../components/layout/Header'
 import Footer from '../components/layout/Footer'
-import CookieConsent from '../components/CookieConsent'
+// import CookieConsent from '../components/CookieConsent'
 
 export default function SiteLayout() {
   return (
@@ -11,7 +11,7 @@ export default function SiteLayout() {
         <Outlet />
       </main>
       <Footer />
-      <CookieConsent />
+      {/* <CookieConsent /> */}
     </div>
   )
 }
