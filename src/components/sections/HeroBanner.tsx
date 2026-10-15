@@ -23,7 +23,13 @@ export default function HeroBanner() {
             style={{ backgroundImage: `url(${slide.image})` }}
             aria-hidden={i !== index}
           >
-            <div className="mx-auto flex h-full w-full max-w-[1300px] items-center px-[15px] lg:px-0 lg:pb-[70px] lg:pt-[188px]">
+            {/* Oscurece la imagen para que resalte el texto */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.3)_55%,rgba(0,0,0,0.1)_100%)]"
+            />
+
+            <div className="relative z-10 mx-auto flex h-full w-full max-w-[1300px] items-center px-[15px] lg:px-0 lg:pb-[70px] lg:pt-[188px]">
               <div className="max-w-full text-left">
                 <h3 className="mb-[5px] whitespace-pre-line text-[20px] leading-[28px] text-white">
                   {slide.kicker}

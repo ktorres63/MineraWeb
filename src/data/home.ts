@@ -201,5 +201,5 @@ export const vive = {
   textLead: 'Vive la experiencia de hacer',
   textStrong: 'Minería para el progreso',
   cta: 'Vista 360° de operaciones',
-  href: 'https://www.lasbambasrecorrido360.com/login',
+  href: '#',
 }

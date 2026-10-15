@@ -74,12 +74,17 @@ const socialIcons = [
 function FooterLink({ link }: { link: FooterColumn['links'][number] }) {
   const content = (
     <>
-      <span className="absolute -left-0 top-0 hidden h-1.5 w-1.5 bg-white lg:block" />
+      {/* Viñeta móvil */}
+      <span aria-hidden="true" className="absolute left-0 top-0 text-[15px] leading-[18px] text-white lg:hidden">
+        -
+      </span>
+      {/* Viñeta escritorio */}
+      <span aria-hidden="true" className="absolute left-0 top-[6px] hidden h-1.5 w-1.5 bg-white lg:block" />
       {link.label}
     </>
   )
   return (
-    <li className="relative mb-2 pl-3.5 text-[14px] leading-[18px] text-white">
+    <li className="relative mb-2 w-full pl-4 text-[14px] leading-[18px] text-white lg:pl-3.5">
       {link.external ? (
         <a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
           {content}
@@ -96,21 +101,21 @@ function FooterLink({ link }: { link: FooterColumn['links'][number] }) {
 export default function Footer() {
   return (
     <footer className="bg-brand-ink text-white lg:pt-[30px]">
-      <div className="mx-auto max-w-[1300px] px-[15px] py-5 lg:px-0">
-        <div className="flex flex-col gap-10 lg:flex-row">
+      <div className="mx-auto max-w-[1300px] px-[15px] py-10 lg:px-0 lg:py-5">
+        <div className="flex flex-col lg:flex-row lg:gap-10">
           {/* Logo */}
           <div className="lg:w-[calc(25%-15px)]">
-            <Link to="/" className="mb-5 inline-block w-[182px]">
+            <Link to="/" className="mb-10 inline-block w-[182px] lg:mb-5">
               <img src="/assets/img/logo-white.svg" alt="Las Bambas" />
             </Link>
           </div>
 
           {/* Columnas de menú */}
-          <div className="flex flex-col gap-6 lg:w-[75%] lg:flex-row lg:justify-between">
+          <div className="flex flex-col lg:w-[75%] lg:flex-row lg:justify-between">
             {columns.map((col, i) => (
-              <ul key={i} className="mb-7 max-w-[120px] lg:mb-[30px] lg:mr-4">
+              <ul key={i} className="mb-[30px] w-full last:mb-0 lg:mr-4 lg:mb-[30px] lg:max-w-[120px] lg:last:mr-0">
                 {col.title && (
-                  <li className="mb-3.5 text-[14px] leading-[18px] text-white">
+                  <li className="mb-3.5 w-full text-[14px] leading-[18px] text-white">
                     {col.title}
                     {col.titleStrong && (
                       <>
@@ -121,7 +126,7 @@ export default function Footer() {
                   </li>
                 )}
                 {col.titleStrong && !col.title && (
-                  <li className="mb-3.5 text-[14px] leading-[18px] text-white">
+                  <li className="mb-3.5 w-full text-[14px] leading-[18px] text-white">
                     <strong className="font-black">{col.titleStrong}</strong>
                   </li>
                 )}
@@ -133,9 +138,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-5 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mt-8 flex flex-col gap-7 lg:mt-5 lg:flex-row lg:items-end lg:justify-between lg:gap-4">
           {/* Radios */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
             {radioLogos.map((r) => (
               <a key={r.alt} href={r.href} target="_blank" rel="noopener noreferrer">
                 <img src={r.src} alt={r.alt} className="h-8 w-auto" />
@@ -144,7 +149,7 @@ export default function Footer() {
           </div>
 
           {/* Redes */}
-          <div className="flex items-center gap-4 lg:justify-end lg:pb-6 lg:pt-[30px]">
+          <div className="flex flex-wrap items-center gap-4 lg:justify-end lg:pb-6 lg:pt-[30px]">
             {socialIcons.map((s) => (
               <a key={s.alt} href={s.href} target="_blank" rel="noopener noreferrer">
                 <img
@@ -158,13 +163,15 @@ export default function Footer() {
         </div>
 
         {/* Pie */}
-        <div className="mt-8 border-t border-white pb-5 pt-[43px] text-left text-[15px] text-white lg:pb-[20px]">
-          © Las Bambas 2023. Todos los Derechos Reservados.
-          <Link to="/terminos-y-condiciones" className="px-[15px] hover:underline">
+        <div className="mt-8 flex flex-col gap-2 border-t border-white pb-0 pt-8 text-left text-[15px] leading-[24px] text-white lg:flex-row lg:flex-wrap lg:items-center lg:gap-0 lg:pb-[20px] lg:pt-[43px]">
+          <span>© Las Bambas 2023. Todos los Derechos Reservados.</span>
+          <Link to="/terminos-y-condiciones" className="w-fit hover:underline lg:px-[15px]">
             Política de Privacidad
           </Link>
-          <span>I</span>
-          <Link to="/politica-de-cookies" className="px-[15px] hover:underline">
+          <span aria-hidden="true" className="hidden lg:inline">
+            I
+          </span>
+          <Link to="/politica-de-cookies" className="w-fit hover:underline lg:px-[15px]">
             Política de Cookies
           </Link>
         </div>

@@ -164,7 +164,7 @@ export default function Header() {
 
   return (
     <header className="absolute top-0 z-[8000] w-full bg-white">
-      <div className="relative mx-auto h-[118px] max-w-[1300px] px-[15px] text-right">
+      <div className="relative mx-auto hidden h-[118px] max-w-[1300px] px-[15px] text-right lg:block">
         {/* Logo */}
         <Link to="/" className="absolute left-[15px] top-7 z-[444444] inline-block w-[182px]">
           <img src="/assets/img/logo.svg" alt="Las Bambas" />

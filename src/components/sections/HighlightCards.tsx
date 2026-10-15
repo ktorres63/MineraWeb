@@ -3,7 +3,7 @@ import { highlights } from '../../data/home'
 
 export default function HighlightCards() {
   return (
-    <section className="relative w-full bg-brand-red bg-[url('/assets/img/fondo-textura-roja.jpg')] bg-[right_bottom] bg-no-repeat py-[86px] lg:py-[86px]">
+    <section className="relative w-full bg-[url('/assets/img/fondo-textura-roja.jpg')] bg-cover bg-center bg-no-repeat py-[86px] lg:bg-auto lg:bg-brand-red lg:bg-[right_bottom]">
       {/* solapa decorativa */}
       <div
         aria-hidden="true"
